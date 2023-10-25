@@ -4,11 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="{{  url_for('static', filename='css/style.css')  }}">
     <title>Task Manager</title>
 </head>
 <body>
+    <header>
+        <nav class="purple darken-2">
+            <!-- Top navbar -->
+            <div class="nav-wrapper">
+              <a href="#!" class="brand-logo">Task Manager</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('home') }}">New Task</a></li>
+                <li><a href="{{ url_for('home') }}">Categories</a></li>
+              </ul>
+            </div>
+          </nav>
+          <!-- Mobile side navbar -->
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}">New Task</a></li>
+            <li><a href="{{ url_for('home') }}">Categories</a></li>
+          </ul>
+    </header>
 
-    Hello World!
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
 
+    <footer class="page-footer purple darken-4">
+        <div class="footer-copyright">        
+          <div class="container">
+          For educational purposes only
+          <a class="grey-text text-lighten-4 right" href="https://codeinstitute.net" target="_blank">@copy Code Institute</a>
+          </div>
+        </div>
+      </footer>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="{{  url_for('static', filename='js/script.js')  }}"></script>
 </body>
 </html>
